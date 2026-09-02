@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal portfolio and project website." />
+  <title>Mantej Sokhi</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">MS</a>
+    <nav>
+      <a href="assets/resume_mantej_2026_2.pdf">Resume ↗</a>
+      <a href="https://github.com/msokhii" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <a href="http://www.cecm.sfu.ca/CAG/" target="_blank" rel="noreferrer">CAG ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-kicker">HELLO WORLD! I'M</div>
+      <h1>Mantej Sokhi</h1>
+
+      <p class="hero-role">
+        <span id="typed-text">Mathematics · Software · Research</span>
+        <span class="cursor" aria-hidden="true"></span>
+      </p>
+
+      <p class="hero-copy">
+        I am an applied mathematician building efficient algorithms for problems where 
+        correctness and performance both matter. 
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-secondary" href="#about">About Me</a>
+        <a class="button button-secondary" href="#projects">Projects</a>
+      </div>
+
+      <div class="hero-meta">
+        <span>📍 Vancouver, Canada</span>
+        <span class="dot"></span>
+        <span>Open to opportunities</span>
+      </div>
+    </section>
+
+    <section id= "projects" class="featured section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">SELECTED WORK</p>
+          <h2>Featured Projects</h2>
+        </div>
+    
+        <a class="text-link" href="projects.html">
+          See all projects →
+        </a>
+      </div>
+    
+      <div class="project-grid">
+    
+        <a class="project-card glow-card" href="https://github.com/msokhii/research_MS">
+          <div class="project-number">01</div>
+    
+          <div class="project-card-content">
+            <p class="project-category">
+              Algorithms · Symbolic Computation · Systems engineering 
+            </p>
+    
+            <h3>Fast Rational Function Interpolation</h3>
+    
+            <p>
+              Developed and designed a high performance C/C++ library for fault-tolerant
+              sparse multivariate rational function interpolation over finite fields. 
+            </p>
+    
+            <div class="tags">
+              <span>C++</span>
+              <span>Maple</span>
+              <span>Algorithms</span>
+              <span>HPC</span>
+            </div>
+          </div>
+    
+          <span class="project-arrow">↗</span>
+        </a>
+    
+    
+        <a class="project-card glow-card" href="https://github.com/msokhii/comp_FM">
+          <div class="project-number">02</div>
+    
+          <div class="project-card-content">
+            <p class="project-category">
+              Numerical Computing · PDEs
+            </p>
+    
+            <h3>Lid Driven Cavity Flow Solver</h3>
+    
+            <p>
+              Built a numerical solver for the 2D lid driven cavity
+              problem using FDM discretization and a projection method
+              with iterative Poisson solvers and performance comparisons across multiple grid sizes.
+            </p>
+    
+            <div class="tags">
+              <span>Numerical Methods</span>
+              <span>PDEs</span>
+              <span>Finite Difference</span>
+              <span>CFD</span>
+              <span>Scientific Computing</span>
+            </div>
+          </div>
+    
+          <span class="project-arrow">↗</span>
+        </a>
+    
+      </div>
+    </section>
+
+    <section id="about" class="about section">
+      <p class="eyebrow">ABOUT</p>
+      <div class="about-layout">
+        <div class="about-photo">
+          <img src="assets/profile_pic_2.jpg" alt="Photo of Mantej">
+        </div>
+        <div class="about-copy">
+          <p>
+            I’m a M.Sc. student in applied mathematics at SFU with a strong interest in algorithms, software engineering and scientific computing.
+            I like working on problems that require both developing theory and implementation, whether that means building an efficient algorithm, 
+            improving performance or developing software to solve a technical problem.
+          </p>
+          <p>
+            When AFK, I’m usually looking for a good coffee spot, going on a hike, working on my car 
+            or hitting the gym. I enjoy having interests that balance out the technical side of what I do and give me a reason to step away 
+            from the screen every once in a while.
+          </p>
+          <div class="about-links">
+            <a href="https://leetcode.com/u/msokhii/" target="_blank" rel="noreferrer">Leetcode ↗</a>
+            <a href="https://www.linkedin.com/in/msokhii/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a href="mailto:sokhimantej99@gmail.com">Email ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Mantej Sokhi</span>
+    <span>Built with HTML, CSS & JavaScript.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

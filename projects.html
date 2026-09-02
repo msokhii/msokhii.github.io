@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Mantej Sokhi</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">MS</a>
+    <nav>
+      <a href="index.html#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-intro">
+      <p class="eyebrow">WORK</p>
+      <h1>Projects</h1>
+      <p>
+        Selected research, software, algorithms, numerical computing and
+        technical experiments.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="project-grid">
+        <a class="project-card glow-card" href="projects/project-1.html">
+          <div class="project-number">01</div>
+          <div class="project-card-content">
+            <p class="project-category">Algorithms · Symbolic Computation · Systems engineering</p>
+            <h3>Fast Rational Function Interpolation</h3>
+            <p>Developed and designed a high performance C/C++ library for fault-tolerant
+              sparse multivariate rational function interpolation over finite fields. </p>
+            <div class="tags">
+              <span>C++</span><span>Maple</span><span>Algorithms</span><span>HPC</span>
+            </div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </a>
+
+        <a class="project-card glow-card" href="projects/project-2.html">
+          <div class="project-number">02</div>
+          <div class="project-card-content">
+            <p class="project-category">Numerical Computing · PDEs</p>
+            <h3>Lid Driven Cavity Flow Solver</h3>
+            <p>Built a numerical solver for the 2D lid driven cavity
+              problem using FDM discretization and a projection method
+              with iterative Poisson solvers and performance comparisons across multiple grid sizes.</p>
+            <div class="tags">
+              <span>Numerical Methods</span>
+              <span>PDEs</span>
+              <span>Finite Difference</span>
+              <span>CFD</span>
+              <span>Scientific Computing</span>
+            </div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </a>
+
+        <a class="project-card glow-card" href="https://msokhii.github.io/polynomial_param_sys_DB/">
+          <div class="project-number">03</div>
+          <div class="project-card-content">
+            <p class="project-category">Database</p>
+            <h3>Polynomial Database</h3>
+            <p>A database containing all major linear polynomial systems with parameters arising in practice.</p>
+            <div class="tags">
+              <span>Polynomials</span><span>SQL</span><span>DB</span>
+            </div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Mantej Sokhi</span>
+    <span>Built with HTML, CSS & JavaScript.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

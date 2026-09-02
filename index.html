@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="cursor-glow" id="cursorGlow"></div>
   <div class="noise"></div>
 
   <header class="site-header">
@@ -16,6 +17,8 @@
       <a href="assets/resume_mantej_2026_2.pdf">Resume ↗</a>
       <a href="https://github.com/msokhii" target="_blank" rel="noreferrer">GitHub ↗</a>
       <a href="http://www.cecm.sfu.ca/CAG/" target="_blank" rel="noreferrer">CAG ↗</a>
+      <button class="command-trigger" id="commandTrigger" type="button"> ⌘ K
+      </button>
     </nav>
   </header>
 
@@ -41,7 +44,7 @@
 
       <div class="hero-meta">
         <span>📍 Vancouver, Canada</span>
-        <span class="dot"></span>
+        <span class="dot availability-dot"></span>
         <span>Open to opportunities</span>
       </div>
     </section>
@@ -149,6 +152,189 @@
     <span>© <span id="year"></span> Mantej Sokhi</span>
     <span>Built with HTML, CSS & JavaScript.</span>
   </footer>
+
+
+  <!-- =========================================
+     COMMAND PALETTE
+     ========================================= -->
+
+<div
+class="command-palette"
+id="commandPalette"
+aria-hidden="true"
+>
+<div class="command-backdrop" id="commandBackdrop"></div>
+
+<div
+  class="command-box"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Quick navigation"
+>
+  <div class="command-search">
+    <span class="command-prompt">&gt;</span>
+
+    <input
+      type="text"
+      id="commandInput"
+      placeholder="Search or jump to..."
+      autocomplete="off"
+      spellcheck="false"
+      aria-label="Search commands"
+    />
+
+    <span class="command-shortcut">ESC</span>
+  </div>
+
+  <div class="command-results" id="commandResults">
+
+    <a
+      href="#about"
+      class="command-item"
+      data-command="about me profile bio"
+    >
+      <div class="command-item-left">
+        <span class="command-icon">01</span>
+
+        <div>
+          <span class="command-title">About Me</span>
+          <span class="command-description">
+            A little bit more about me!
+          </span>
+        </div>
+      </div>
+
+      <span class="command-action">↵</span>
+    </a>
+
+
+    <a
+      href="#projects"
+      class="command-item"
+      data-command="projects work featured research"
+    >
+      <div class="command-item-left">
+        <span class="command-icon">02</span>
+
+        <div>
+          <span class="command-title">Featured Projects</span>
+          <span class="command-description">
+            See what I've been working on currently
+          </span>
+        </div>
+      </div>
+
+      <span class="command-action">↵</span>
+    </a>
+
+
+    <a
+      href="assets/resume.pdf"
+      target="_blank"
+      class="command-item"
+      data-command="resume cv experience education"
+    >
+      <div class="command-item-left">
+        <span class="command-icon">03</span>
+
+        <div>
+          <span class="command-title">Resume</span>
+          <span class="command-description">
+            View my resume
+          </span>
+        </div>
+      </div>
+
+      <span class="command-action">↗</span>
+    </a>
+
+
+    <a
+      href="https://github.com/msokhii"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="command-item"
+      data-command="github code repositories"
+    >
+      <div class="command-item-left">
+        <span class="command-icon">04</span>
+
+        <div>
+          <span class="command-title">GitHub</span>
+          <span class="command-description">
+            Browse my code
+          </span>
+        </div>
+      </div>
+
+      <span class="command-action">↗</span>
+    </a>
+
+
+    <a
+      href="https://www.linkedin.com/in/msokhii"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="command-item"
+      data-command="linkedin professional connect"
+    >
+      <div class="command-item-left">
+        <span class="command-icon">05</span>
+
+        <div>
+          <span class="command-title">LinkedIn</span>
+          <span class="command-description">
+            Connect with me
+          </span>
+        </div>
+      </div>
+
+      <span class="command-action">↗</span>
+    </a>
+
+
+    <a
+      href="mailto:sokhimantej99@gmail.com"
+      class="command-item"
+      data-command="email contact message"
+    >
+      <div class="command-item-left">
+        <span class="command-icon">06</span>
+
+        <div>
+          <span class="command-title">Email</span>
+          <span class="command-description">
+            Send me an email
+          </span>
+        </div>
+      </div>
+
+      <span class="command-action">↗</span>
+    </a>
+
+  </div>
+
+
+  <div class="command-footer">
+    <div>
+      <span class="command-key">↑</span>
+      <span class="command-key">↓</span>
+      Navigate
+    </div>
+
+    <div>
+      <span class="command-key">↵</span>
+      Open
+    </div>
+
+    <div>
+      <span class="command-key">ESC</span>
+      Close
+    </div>
+  </div>
+
+</div>
+</div>
 
   <script src="script.js"></script>
 </body>

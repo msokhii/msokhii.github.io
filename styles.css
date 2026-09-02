@@ -60,6 +60,54 @@ img {
     url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 }
 
+/* =========================================
+   CURSOR GLOW
+   ========================================= */
+
+   .cursor-glow {
+    position: fixed;
+  
+    width: 500px;
+    height: 500px;
+  
+    left: 0;
+    top: 0;
+  
+    border-radius: 50%;
+  
+    pointer-events: none;
+  
+    background: radial-gradient(
+      circle,
+      rgba(158, 255, 110, 0.06) 0%,
+      rgba(158, 255, 110, 0.045) 30%,
+      rgba(158, 255, 110, 0.015) 55%,
+      transparent 72%
+    );
+  
+    transform: translate(-50%, -50%);
+  
+    opacity: 0;
+  
+    z-index: 0;
+  
+    transition: opacity 0.3s ease;
+  
+    will-change: left, top;
+  }
+  
+  
+  /* Make the actual website stay above the glow */
+  
+  .site-header,
+  main,
+  footer {
+    position: relative;
+    z-index: 1;
+  }
+
+
+
 .site-header,
 main,
 footer {
@@ -957,6 +1005,336 @@ code {
   }
 }
 
+/* =========================================
+   COMMAND PALETTE
+   ========================================= */
+
+   .command-palette {
+    position: fixed;
+    inset: 0;
+  
+    z-index: 2000;
+  
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  
+    padding: 14vh 20px 20px;
+  
+    visibility: hidden;
+    opacity: 0;
+  
+    transition:
+      opacity 0.18s ease,
+      visibility 0.18s ease;
+  }
+  
+  .command-palette.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  
+  /* Background overlay */
+  
+  .command-backdrop {
+    position: absolute;
+    inset: 0;
+  
+    background: rgba(0, 0, 0, 0.72);
+  
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  
+  /* Main palette */
+  
+  .command-box {
+    position: relative;
+  
+    width: min(620px, 100%);
+  
+    background: #0e1014;
+  
+    border: 1px solid rgba(255, 255, 255, 0.13);
+  
+    box-shadow:
+      0 30px 80px rgba(0, 0, 0, 0.55),
+      0 0 40px rgba(158, 255, 110, 0.035);
+  
+    overflow: hidden;
+  
+    transform: translateY(-10px) scale(0.985);
+  
+    transition: transform 0.18s ease;
+  }
+  
+  .command-palette.active .command-box {
+    transform: translateY(0) scale(1);
+  }
+  
+  
+  /* Search */
+  
+  .command-search {
+    height: 68px;
+  
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  
+    padding: 0 18px;
+  
+    border-bottom: 1px solid var(--line);
+  }
+  
+  .command-prompt {
+    color: var(--accent);
+  
+    font-family: "DM Mono", monospace;
+    font-size: 18px;
+  }
+  
+  .command-search input {
+    flex: 1;
+    min-width: 0;
+  
+    border: 0;
+    outline: 0;
+  
+    background: transparent;
+    color: var(--text);
+  
+    font-family: "DM Mono", monospace;
+    font-size: 15px;
+  }
+  
+  .command-search input::placeholder {
+    color: #646a74;
+  }
+  
+  .command-shortcut {
+    padding: 5px 7px;
+  
+    border: 1px solid var(--line);
+  
+    color: #6e747e;
+  
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+  }
+  
+  
+  /* Results */
+  
+  .command-results {
+    max-height: 390px;
+  
+    padding: 8px;
+  
+    overflow-y: auto;
+  }
+  
+  .command-item {
+    width: 100%;
+  
+    min-height: 62px;
+  
+    padding: 10px 12px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  
+    border: 1px solid transparent;
+  
+    transition:
+      background 0.14s ease,
+      border-color 0.14s ease;
+  }
+  
+  .command-item:hover,
+  .command-item.selected {
+    background: rgba(158, 255, 110, 0.055);
+  
+    border-color: rgba(158, 255, 110, 0.15);
+  }
+  
+  .command-item-left {
+    min-width: 0;
+  
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  
+  .command-icon {
+    width: 28px;
+  
+    color: #555b65;
+  
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+  }
+  
+  .command-item.selected .command-icon,
+  .command-item:hover .command-icon {
+    color: var(--accent);
+  }
+  
+  .command-title {
+    display: block;
+  
+    color: #dfe2e7;
+  
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .command-description {
+    display: block;
+  
+    margin-top: 3px;
+  
+    color: #686e78;
+  
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+  }
+  
+  .command-action {
+    color: #555b65;
+  
+    font-family: "DM Mono", monospace;
+    font-size: 13px;
+  }
+  
+  .command-item:hover .command-action,
+  .command-item.selected .command-action {
+    color: var(--accent);
+  }
+  
+  
+  /* Footer */
+  
+  .command-footer {
+    min-height: 42px;
+  
+    padding: 8px 15px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 14px;
+  
+    border-top: 1px solid var(--line);
+  
+    color: #565c65;
+  
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+  }
+  
+  .command-footer > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .command-key {
+    padding: 3px 5px;
+  
+    border: 1px solid var(--line);
+  
+    color: #747b85;
+  
+    font-size: 8px;
+  }
+  
+  
+  /* Hide commands filtered by search */
+  
+  .command-item.command-hidden {
+    display: none;
+  }
+  
+  
+  /* =========================================
+     MOBILE COMMAND PALETTE
+     ========================================= */
+  
+  @media (max-width: 760px) {
+  
+    .command-palette {
+      padding:
+        90px
+        14px
+        20px;
+    }
+  
+    .command-box {
+      width: 100%;
+    }
+  
+    .command-search {
+      height: 60px;
+  
+      padding: 0 14px;
+    }
+  
+    .command-search input {
+      font-size: 16px;
+    }
+  
+    .command-shortcut {
+      display: none;
+    }
+  
+    .command-item {
+      min-height: 64px;
+  
+      padding: 10px;
+    }
+  
+    .command-description {
+      font-size: 9px;
+    }
+  
+    .command-footer {
+      justify-content: flex-start;
+  
+      gap: 10px;
+    }
+  
+  }
+
+  .command-trigger {
+    padding: 6px 9px;
+  
+    border: 1px solid var(--line);
+  
+    background: transparent;
+    color: var(--muted);
+  
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+  
+    cursor: pointer;
+  
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+  
+  .command-trigger:hover {
+    color: var(--accent);
+  
+    border-color: rgba(158, 255, 110, 0.35);
+  }
+
 
 /* =========================================
    VERY SMALL PHONES
@@ -1022,4 +1400,59 @@ code {
   .section {
     padding: 55px 0;
   }
+  
 }
+
+@media (max-width: 760px) {
+
+  .cursor-glow {
+    display: none;
+  }
+
+}
+
+@media (hover: none), (pointer: coarse) {
+
+  .cursor-glow {
+    display: none;
+  }
+
+}
+
+/* =========================================
+   AVAILABILITY PULSE
+   ========================================= */
+
+   .availability-dot {
+    position: relative;
+  
+    animation: availabilityPulse 2.4s ease-out infinite;
+  }
+  
+  @keyframes availabilityPulse {
+  
+    0% {
+      box-shadow:
+        0 0 0 0 rgba(158, 255, 110, 0.35),
+        0 0 10px rgba(158, 255, 110, 0.55);
+    }
+  
+    65% {
+      box-shadow:
+        0 0 0 7px rgba(158, 255, 110, 0),
+        0 0 12px rgba(158, 255, 110, 0.55);
+    }
+  
+    100% {
+      box-shadow:
+        0 0 0 0 rgba(158, 255, 110, 0),
+        0 0 10px rgba(158, 255, 110, 0.55);
+    }
+  
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .availability-dot {
+      animation: none;
+    }
+  }
